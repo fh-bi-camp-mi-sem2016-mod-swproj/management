@@ -209,6 +209,62 @@ userDao.findByLogin(login)
 
 ---
 
+.left-column[
+## React.js Website
+### Übersicht
+### Weitere Technologien
+### Viewerzeugung
+]
+
+.right-column[
+#### Projektstruktur
+![](img/reactjs-project-structure.png)
+]
+
+---
+
+.left-column[
+## React.js Website
+### Übersicht
+### Weitere Technologien
+### Viewerzeugung
+]
+
+.right-column[
+#### Ausgangssituation
+<img src="img/browser-empty.png" width="100%"/>
+]
+
+---
+
+.left-column[
+## React.js Website
+### Übersicht
+### Weitere Technologien
+### Viewerzeugung
+]
+
+.right-column[
+#### Formaler Ablauf
+<img src="img/reactjs-view-creation.png" style="max-height:600px"/>
+]
+
+---
+
+.left-column[
+## React.js Website
+### Übersicht
+### Weitere Technologien
+### Viewerzeugung
+]
+
+.right-column[
+#### Endergebnis
+<img src="img/browser-loginpage.png" width="100%"/>
+]
+
+---
+
 # Reacht Native App
 
 ![](img/architecture-diagram-highlight-react-native.png)
