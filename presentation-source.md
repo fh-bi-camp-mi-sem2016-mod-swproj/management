@@ -355,3 +355,174 @@ userDao.findByLogin(login)
 
 - Alle verschiedenen Screens ohne besondere Hierachien
 ]
+
+---
+
+.left-column[
+## React Native App
+### Übersicht
+### Bibliotheken
+### Projektaufbau
+### Beispiel: Login View
+]
+
+.right-column[
+```xml
+<View style={styles.inputContainerView}>
+    <Text style={styles.text}>
+        Login :
+    </Text>
+    <TextInput
+        style={styles.input}
+        onChangeText={username => this.setState({username})}
+        placeholder="E-Mail">
+    </TextInput>
+</View>
+<View style={styles.inputContainerView}>
+    <Text style={styles.text}>
+        Password :
+    </Text>
+    <TextInput
+        style={styles.input}
+        onChangeText={password => this.setState({password})}
+        placeholder="Passwort"
+        secureTextEntry = {true}>
+    </TextInput>
+</View>
+<ButtonContainer>
+    <TouchableHighlight
+        onPress={()=>this._login(this, this.state.username,
+        this.state.password>
+        <Text style={styles.btnText}>
+            Einloggen
+        </Text>
+    </TouchableHighlight>
+</ButtonContainer>
+```
+]
+
+---
+
+.left-column[
+## React Native App
+### Übersicht
+### Bibliotheken
+### Projektaufbau
+### Beispiel: Login Logik
+]
+
+.right-column[
+```javascript
+_login(self, pUser, pPassword) {
+    var db = Database.getInstance();
+
+    db.user.findByLogin(pUser, {
+        function (data) {
+            var receivedUser = data[0];
+
+            if (receivedUser.password === pPassword) {
+                var user = User.getInstance();
+                user.currentUSER.user = receivedUser;
+
+                if (receivedUser.role === 2) {
+                    self._navigateToAdminMenue();
+                } else {
+                    self._getProfile();
+                }
+            } else {
+                Alert.alert('Passwort',
+                    "Das Passwort passt nicht zum " +
+                    "angegebenen Benutzer.",
+                    [{text: 'ok'}]);
+            }
+        }, function (err) {
+            Alert.alert('Fehler', "Es gab einen " +
+                "Fehler bei der Datenbankanfrage.",
+                [{text: 'ok'}]);
+        }
+    });
+}
+```
+]
+
+---
+
+.left-column[
+## React Native App
+### Übersicht
+### Bibliotheken
+### Projektaufbau
+### Beispiel: Login Navigation
+]
+
+.right-column[
+```javascript
+_navigateToMainMenue() {
+    this.props.navigator.push({
+        ident: "Main"
+    })
+}
+```
+
+Aus `index.android.js`:
+
+```javascript
+_renderScene(route , navigator) {
+    var globalNavigatorProps = {
+        navigator
+    };
+    switch (route.ident) {
+        case "Login":
+            return [
+                <LoginScreen key="login"
+                             {...globalNavigatorProps} />
+            ];
+        case "Main":
+            return [
+                <MainScreen key="main"
+                            {...globalNavigatorProps} />
+           ]
+    ...
+    }
+}
+```
+]
+
+---
+
+.left-column[
+## React Native App
+### Übersicht
+### Bibliotheken
+### Projektaufbau
+### Beispiel: Login Styles
+]
+
+.right-column[
+```javascript
+input: {
+    height: 36,
+    padding: 4,
+    marginRight: 70,
+    flex: 4,
+    fontSize: 18,
+    borderWidth: 1,
+    borderColor: '#000000',
+    borderRadius: 4,
+    color: '#000000',
+    textAlign: 'center'
+},
+btnText: {
+    fontSize: 18,
+    color: '#fff',
+    alignSelf: 'center'
+},
+text: {
+    width: 100,
+    flexDirection: 'row',
+    padding: 5,
+    height: 20,
+    margin: 10
+}
+```
+]
