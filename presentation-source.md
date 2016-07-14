@@ -194,15 +194,15 @@ userDao.findByLogin(login)
 ]
 
 .right-column[
-- Npm
+- npm
 
-- Webpack
+- webpack
 
 - Karma
 
 - Jasmine
 
-- eslint
+- ESLint
 
 - Babel
 ]
