@@ -309,11 +309,29 @@ userDao.findByLogin(login)
 ## React Native App
 ### Übersicht
 ### Bibliotheken
-### Projektaufbau
+### Projektaufbau: Übersicht
 ]
 
 .right-column[
 ![](img/react-native-structure.png)
+
+- Verschiedene Konfigurationsdateien für Deployment und Verwaltung
+
+- `android` enthält vorgegebene Projektstruktur von React Native (Gradle wird     genutzt)
+
+- `node_modules` enthält JavaScript Bibliotheken
+]
+
+---
+
+.left-column[
+## React Native App
+### Übersicht
+### Bibliotheken
+### Projektaufbau: Komponenten
+]
+
+.right-column[
 ![](img/react-native-structure-components.png)
 ]
 
@@ -323,7 +341,7 @@ userDao.findByLogin(login)
 ## React Native App
 ### Übersicht
 ### Bibliotheken
-### Projektaufbau
+### Projektaufbau: Screens
 ]
 
 .right-column[
