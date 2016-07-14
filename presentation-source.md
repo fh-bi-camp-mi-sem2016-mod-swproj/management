@@ -8,9 +8,13 @@ class: center middle
 # Inhaltsverzeichnis
 
 - Überblick
+
 - CouchDB
+
   - API
+
 - React.js Website
+
 - Reacht Native App
 
 ---
@@ -164,8 +168,83 @@ userDao.findByLogin(login)
 
 ---
 
+.left-column[
+## React.js Website
+### Übersicht
+]
+
+.right-column[
+- JSX-UI Framework
+
+- Entwickelt durch Facebook
+
+- Entwicklung mittels JavaScript Komponenten (Objekte/Klassen)
+
+- Ausschließlich UI Framework
+
+- Kein Business Logic Layer
+]
+
+---
+
+.left-column[
+## React.js Website
+### Übersicht
+### Weitere Technologien
+]
+
+.right-column[
+- Npm
+
+- Webpack
+
+- Karma
+
+- Jasmine
+
+- eslint
+
+- Babel
+]
+
+---
+
 # Reacht Native App
 
 ![](img/architecture-diagram-highlight-react-native.png)
+
+---
+
+.left-column[
+## React Native App
+### Übersicht
+]
+
+.right-column[
+- Framework zum Schreiben von nativen Apps für Android und IOs mithilfe von
+  Javascript
+
+- Ausführen von JavaScript zur Laufzeit und Darstellung in nativen Komponenten
+  wie zum Beispiel einer `TextView`
+
+- Vorteil: Nutzung der vielen bestehenden Bibliotheken für Javascript und
+  verhältnismäßig einfache Implementierung
+]
+
+---
+
+.left-column[
+## React Native App
+### Übersicht
+### Bibliotheken
+]
+
+.right-column[
+- lodash: Helferfunktionen
+
+- react-native-vector-icons: Verschiedene Icons für zum Beispiel die Toolbar
+
+- react-native-image-picker: Zum Aufnehmen oder Auswählen von Fotos
+]
 
 ---
