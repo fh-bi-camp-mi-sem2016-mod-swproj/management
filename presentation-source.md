@@ -14,11 +14,11 @@ class: center middle
 
 ---
 
-.left-column[
-    ## Überblick
-    ## Architekturdiagramm
-]
+# Überblick
+### Architekturdiagramm
 
-.right-column[
-  
-]
+<center>
+<img src="find.me-architecture-diagram-draw.io.png" width="80%" >
+</center>
+
+---
