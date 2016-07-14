@@ -9,16 +9,38 @@ class: center middle
 
 - Überblick
 - CouchDB
+  - API
 - React.js Website
 - Reacht Native App
 
 ---
 
-# Überblick
-### Architekturdiagramm
+# Überblick: Architekturdiagramm
 
-<center>
-<img src="find.me-architecture-diagram-draw.io.png" width="80%" >
-</center>
+![](find.me-architecture-diagram-draw.io.png)
+
+---
+
+# CouchDB
+
+![](find.me-architecture-diagram-draw.io.png)
+
+---
+
+# CouchDB API
+
+![](find.me-architecture-diagram-draw.io.png)
+
+---
+
+# React.js Website
+
+![](find.me-architecture-diagram-draw.io.png)
+
+---
+
+# Reacht Native App
+
+![](find.me-architecture-diagram-draw.io.png)
 
 ---
