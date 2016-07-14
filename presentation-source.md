@@ -17,13 +17,13 @@ class: center middle
 
 # Überblick: Architekturdiagramm
 
-![](find.me-architecture-diagram-draw.io.png)
+![](img/architecture-diagram.png)
 
 ---
 
 # CouchDB
 
-![](find.me-architecture-diagram-draw.io-highlight-couchdb.png)
+![](img/architecture-diagram-highlight-couchdb.png)
 
 ---
 
@@ -42,9 +42,23 @@ class: center middle
 
 ---
 
+.left-column[
+## CouchDB
+### Übersicht
+### Schema
+]
+
+.right-column[
+<center>
+  <img src="img/couchdb-entity-relationship-diagram.png" width="100%"/>
+</center>
+]
+
+---
+
 # CouchDB API
 
-![](find.me-architecture-diagram-draw.io-highlight-couchdb-api.png)
+![](img/architecture-diagram-highlight-couchdb-api.png)
 
 ---
 
@@ -92,18 +106,53 @@ class: center middle
 ]
 
 .right-column[
+<center>
+  <img src="img/userdao-diagram.png" />
+</center>
+]
+
+---
+
+.left-column[
+## CouchDB API
+### Übersicht
+### DAO
+### Beispiel: User
+]
+
+.right-column[
+
+Callback Variante
+
 ```javascript
+let login = "username";
 let dm = new CouchDbApi.DaoManager(connSettings);
 let userDao = dm.getDao(CouchDbApi.UserDAO);
 
 userDao.findByLogin(login, {
     success: function(data) {
-        //Do something with the data
+        // Do something with the data
     },
     error: function(err) {
         // Log/Show/Handle error
     }
 });
+```
+
+Promise Variante
+
+```javascript
+let login = "username";
+let dm = new CouchDbApi.DaoManager(connSettings);
+let userDao = dm.getDao(CouchDbApi.UserDAO);
+
+userDao.findByLogin(login)
+    .then(function(data){
+        // Do something with the data
+    })
+    .catch(function(err){
+        // Log/Show/Handle error
+    });
 ```
 ]
 
@@ -111,12 +160,12 @@ userDao.findByLogin(login, {
 
 # React.js Website
 
-![](find.me-architecture-diagram-draw.io-highlight-reactjs.png)
+![](img/architecture-diagram-highlight-reactjs.png)
 
 ---
 
 # Reacht Native App
 
-![](find.me-architecture-diagram-draw.io-highlight-react-native.png)
+![](img/architecture-diagram-highlight-react-native.png)
 
 ---
