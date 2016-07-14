@@ -298,9 +298,9 @@ userDao.findByLogin(login)
 .right-column[
 - lodash: Helferfunktionen
 
-- react-native-vector-icons: Verschiedene Icons für zum Beispiel die Toolbar
+- [react-native-vector-icons](https://github.com/oblador/react-native-vector-icons): Verschiedene Icons für zum Beispiel die Toolbar
 
-- react-native-image-picker: Zum Aufnehmen oder Auswählen von Fotos
+- [react-native-image-picker](https://github.com/marcshilling/react-native-image-picker): Zum Aufnehmen oder Auswählen von Fotos
 ]
 
 ---
