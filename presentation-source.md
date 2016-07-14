@@ -248,3 +248,28 @@ userDao.findByLogin(login)
 ]
 
 ---
+
+.left-column[
+## React Native App
+### Übersicht
+### Bibliotheken
+### Projektaufbau
+]
+
+.right-column[
+![](img/react-native-structure.png)
+![](img/react-native-structure-components.png)
+]
+
+---
+
+.left-column[
+## React Native App
+### Übersicht
+### Bibliotheken
+### Projektaufbau
+]
+
+.right-column[
+![](img/react-native-structure-screens.png)
+]
