@@ -23,24 +23,24 @@ class: center middle
 
 # CouchDB
 
-![](find.me-architecture-diagram-draw.io.png)
+![](find.me-architecture-diagram-draw.io-highlight-couchdb.png)
 
 ---
 
 # CouchDB API
 
-![](find.me-architecture-diagram-draw.io.png)
+![](find.me-architecture-diagram-draw.io-highlight-couchdb-api.png)
 
 ---
 
 # React.js Website
 
-![](find.me-architecture-diagram-draw.io.png)
+![](find.me-architecture-diagram-draw.io-highlight-reactjs.png)
 
 ---
 
 # Reacht Native App
 
-![](find.me-architecture-diagram-draw.io.png)
+![](find.me-architecture-diagram-draw.io-highlight-react-native.png)
 
 ---
