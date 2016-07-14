@@ -333,6 +333,12 @@ userDao.findByLogin(login)
 
 .right-column[
 ![](img/react-native-structure-components.png)
+
+- Aufteilung in frontend und backend
+
+  - frontend enthält View Komponenten die an mehreren Stellen benutzt werden
+
+  - backend enthält Klassen zum Datenzugriff
 ]
 
 ---
@@ -346,4 +352,6 @@ userDao.findByLogin(login)
 
 .right-column[
 ![](img/react-native-structure-screens.png)
+
+- Alle verschiedenen Screens ohne besondere Hierachien
 ]
