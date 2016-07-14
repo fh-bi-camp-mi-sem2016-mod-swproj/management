@@ -194,6 +194,8 @@ userDao.findByLogin(login)
 ]
 
 .right-column[
+#### Projektumgebung
+
 - npm
 
 - webpack
@@ -205,6 +207,28 @@ userDao.findByLogin(login)
 - ESLint
 
 - Babel
+]
+
+---
+
+.left-column[
+## React.js Website
+### Übersicht
+### Weitere Technologien
+]
+
+.right-column[
+#### Biblotheken
+
+- react-router
+
+- lodash
+
+- q
+
+- jQuery
+
+- Bootstrap
 ]
 
 ---
@@ -261,6 +285,318 @@ userDao.findByLogin(login)
 .right-column[
 #### Endergebnis
 <img src="img/browser-loginpage.png" width="100%"/>
+]
+
+---
+
+.left-column[
+## React.js Website
+### Übersicht
+### Weitere Technologien
+### Viewerzeugung
+]
+
+.right-column[
+#### LoginPage-Code
+
+```js
+export default class LoginPage extends React.Component {
+    constructor(props) {
+        super(props);
+
+        if (localStorage.getItem("sessionUserId")) {
+            location.href = "#/profile";
+        }
+    }
+
+    render() {
+        return (
+            <div>
+                <LoginHeader/>
+                <LoginInfoBox/>
+                <LoginTeaser/>
+                <LoginFooter/>
+            </div>
+        );
+    }
+}
+```
+]
+
+---
+
+.left-column[
+## React.js Website
+### Übersicht
+### Weitere Technologien
+### Viewerzeugung
+]
+
+.right-column[
+#### LoginHeader-Code
+
+```js
+export default class LoginHeader extends React.Component {
+    render() {
+        return (
+            <div>
+                <!-- ... -->
+                <button type="button" className="btn btn-primary" onClick={this.login}>Anmelden</button>
+                <!-- ... -->
+            </div>
+        );
+    }
+
+    login() {
+        let loginService = new LoginService();
+
+        loginService.login($("#username").val(), $("#password").val(), {
+            success: function (data) {
+                location.href = "#/profile";
+            },
+            error: function (err) {
+                console.log(err);
+            }
+        });
+    }
+}
+```
+]
+
+---
+
+.left-column[
+## React.js Website
+### Übersicht
+### Weitere Technologien
+### Viewerzeugung
+]
+
+.right-column[
+#### LoginFooter-Code
+
+```js
+export default class LoginFooter extends React.Component {
+    render() {
+        return (
+            <div className="container">
+                <div className="row">
+                    <hr />
+                    <div className="text-center">@ 2016 find.me Alle Rechte vorbehalten.</div>
+                </div>
+            </div>
+        );
+    }
+}
+```
+]
+
+---
+
+.left-column[
+## React.js Website
+### Übersicht
+### Weitere Technologien
+### Viewerzeugung
+]
+
+.right-column[
+#### LoginInfoBox
+
+```js
+export default class LoginInfoBox extends React.Component {
+    render() {
+        return (
+            <div>
+                <div className="row" style={{backgroundColor: "#F7F7F7"}}>
+                    <div className="col-md-12">
+                        <h1 className="title">find.me</h1>
+                        <h5 className="info">
+                            Anhand Ihrer Interessen, Vorlieben und Vorstellungen erstellt find.me<br/>
+                            eine Liste mit vielversprechenden Dates.
+                            <br/>
+                            <br/>
+                            <br/>
+                            Finden Sie den Richtigen.
+                        </h5>
+                        <a className="btn btn-primary" href="#/register">Registrieren</a>
+                    </div>
+                </div>
+            </div>
+        );
+    }
+}
+```
+]
+
+---
+
+.left-column[
+## React.js Website
+### Übersicht
+### Weitere Technologien
+### Viewerzeugung
+]
+
+.right-column[
+#### LoginTeaser-Code
+
+```js
+export default class LoginTeaser extends React.Component {
+    render() {
+        let self = this;
+
+        return (
+            <div>
+                <div className="row">
+                    <div className="col-md-4">
+                        <Teaser header="Interessen" description={self.createRandomDescription()} destination="#"/>
+                    </div>
+                    <div className="col-md-4">
+                        <Teaser header="Vorlieben" description={self.createRandomDescription()} destination="#"/>
+                    </div>
+                    <div className="col-md-4">
+                        <Teaser header="Vorstellungen" description={self.createRandomDescription()} destination="#"/>
+                    </div>
+                </div>
+            </div>
+        );
+    }
+
+    createRandomDescription() {
+        return "some cool stuff";
+    }
+}
+```
+]
+
+---
+
+.left-column[
+## React.js Website
+### Übersicht
+### Weitere Technologien
+### Viewerzeugung
+]
+
+.right-column[
+#### Teaser-Code
+
+```js
+export default class Teaser extends React.Component {
+    render() {
+        let self = this;
+
+        return (
+            <div>
+                <h3>{self.props.header}</h3>
+                <p>{self.props.description}</p>
+                {(() => {
+                    if (self.props.destination) {
+                        return (<a className="btn btn-link" href={self.props.destination}>mehr ...</a>);
+                    }
+                })()}
+            </div>
+        );
+    }
+}
+```
+]
+
+---
+
+.left-column[
+## React.js Website
+### Übersicht
+### Weitere Technologien
+### Viewerzeugung
+]
+
+.right-column[
+#### LoginService
+
+```js
+export default class LoginService {
+    login(login, password, callbacks) {
+        let dm = new CouchDbApi.DaoManager(connSettings);
+        let userDao = dm.getDao(CouchDbApi.UserDAO);
+
+        userDao.findByLogin(login, {
+            success: function(data) {
+                if (data && data[0].password === password) {
+                    if (callbacks && typeof callbacks.success === "function") {
+                        localStorage.setItem("sessionUserId", data[0]._id);
+                        callbacks.success(data);
+                    }
+                } else {
+                    if (callbacks && typeof callbacks.error === "function") {
+                        callbacks.error("wrong username or password");
+                    }
+                }
+            },
+            error: function(err) {
+                console.error(err);
+                if (callbacks && typeof callbacks.error === "function") {
+                    callbacks.error(err);
+                }
+            }
+        });
+    }
+}
+```
+]
+
+---
+
+.left-column[
+## React.js Website
+### Übersicht
+### Weitere Technologien
+### Viewerzeugung
+]
+
+.right-column[
+#### Zusammenfassung
+
+- Webbrowser fordert konkrete Page an
+
+    - Routing-Modul
+
+- Page lädt Sub-Komponenten
+
+    - Fragmentierung von Komponenten möglich
+
+    - Gute Wiederverwendbarkeit der Komponenten
+
+- Webbrowser zeigt gerendertes Ergebnis
+]
+
+---
+
+.left-column[
+## React.js Website
+### Übersicht
+### Weitere Technologien
+### Viewerzeugung
+### Deployment
+]
+
+.right-column[
+- Bundler: webpack
+
+- npm-Tasks
+
+    - `npm run startDev`
+
+        - Startet `webpack-dev-server --watch --inline --hot`
+
+        - Entwicklerseite aufrufbar unter `http://localhost:8080/webpack-dev-server/`
+
+    - `npm run dist`
+
+        - Startet `webpack`
+
+        - Distribution in Ordner `dist/`
 ]
 
 ---
