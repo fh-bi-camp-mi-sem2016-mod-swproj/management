@@ -92,7 +92,7 @@ class: center middle
 ]
 
 .right-column[
-```
+```javascript
 let dm = new CouchDbApi.DaoManager(connSettings);
 let userDao = dm.getDao(CouchDbApi.UserDAO);
 
