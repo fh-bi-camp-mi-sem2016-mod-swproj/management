@@ -341,7 +341,9 @@ export default class LoginHeader extends React.Component {
         return (
             <div>
                 <!-- ... -->
-                <button type="button" className="btn btn-primary" onClick={this.login}>Anmelden</button>
+                <button type="button"
+                className="btn btn-primary"
+                onClick={this.login}>Anmelden</button>
                 <!-- ... -->
             </div>
         );
@@ -350,7 +352,8 @@ export default class LoginHeader extends React.Component {
     login() {
         let loginService = new LoginService();
 
-        loginService.login($("#username").val(), $("#password").val(), {
+        loginService.login($("#username").val(),
+                           $("#password").val(), {
             success: function (data) {
                 location.href = "#/profile";
             },
@@ -382,7 +385,9 @@ export default class LoginFooter extends React.Component {
             <div className="container">
                 <div className="row">
                     <hr />
-                    <div className="text-center">@ 2016 find.me Alle Rechte vorbehalten.</div>
+                    <div className="text-center">
+                    @ 2016 find.me Alle Rechte vorbehalten.
+                    </div>
                 </div>
             </div>
         );
@@ -408,18 +413,23 @@ export default class LoginInfoBox extends React.Component {
     render() {
         return (
             <div>
-                <div className="row" style={{backgroundColor: "#F7F7F7"}}>
+                <div className="row"
+                style={{backgroundColor: "#F7F7F7"}}>
                     <div className="col-md-12">
                         <h1 className="title">find.me</h1>
                         <h5 className="info">
-                            Anhand Ihrer Interessen, Vorlieben und Vorstellungen erstellt find.me<br/>
-                            eine Liste mit vielversprechenden Dates.
+                            Anhand Ihrer Interessen,
+                            Vorlieben und Vorstellungen
+                            erstellt find.me<br/>
+                            eine Liste mit vielversprechenden
+                            Dates.
                             <br/>
                             <br/>
                             <br/>
                             Finden Sie den Richtigen.
                         </h5>
-                        <a className="btn btn-primary" href="#/register">Registrieren</a>
+                        <a className="btn btn-primary"
+                        href="#/register">Registrieren</a>
                     </div>
                 </div>
             </div>
@@ -443,29 +453,33 @@ export default class LoginInfoBox extends React.Component {
 
 ```js
 export default class LoginTeaser extends React.Component {
-    render() {
-        let self = this;
-
-        return (
-            <div>
-                <div className="row">
-                    <div className="col-md-4">
-                        <Teaser header="Interessen" description={self.createRandomDescription()} destination="#"/>
-                    </div>
-                    <div className="col-md-4">
-                        <Teaser header="Vorlieben" description={self.createRandomDescription()} destination="#"/>
-                    </div>
-                    <div className="col-md-4">
-                        <Teaser header="Vorstellungen" description={self.createRandomDescription()} destination="#"/>
-                    </div>
-                </div>
-            </div>
-        );
-    }
-
-    createRandomDescription() {
-        return "some cool stuff";
-    }
+ render() {
+   let self = this;
+   return (
+     <div>
+       <div className="row">
+         <div className="col-md-4">
+           <Teaser header="Interessen"
+                 description={self.createRandomDescription()}
+                 destination="#"/>
+         </div>
+         <div className="col-md-4">
+           <Teaser header="Vorlieben"
+                 description={self.createRandomDescription()}
+                 destination="#"/>
+         </div>
+         <div className="col-md-4">
+           <Teaser header="Vorstellungen"
+                 description={self.createRandomDescription()}
+                 destination="#"/>
+         </div>
+       </div>
+     </div>
+   );
+ }
+ createRandomDescription() {
+   return "some cool stuff";
+ }
 }
 ```
 ]
@@ -493,7 +507,9 @@ export default class Teaser extends React.Component {
                 <p>{self.props.description}</p>
                 {(() => {
                     if (self.props.destination) {
-                        return (<a className="btn btn-link" href={self.props.destination}>mehr ...</a>);
+                        return (<a className="btn btn-link"
+                        href={self.props.destination}>mehr
+                        ...</a>);
                     }
                 })()}
             </div>
