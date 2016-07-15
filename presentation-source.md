@@ -878,3 +878,28 @@ text: {
 }
 ```
 ]
+
+---
+
+.left-column[
+## React Native App
+### Übersicht
+### Bibliotheken
+### Projektaufbau
+### Beispiel: Login
+### Deployment
+]
+
+.right-column[
+Einmalige Konfiguration:
+
+- Keytore anlegen mit `keytool` und in das `android/app` Verzeichnis kopieren
+
+- Daten (Username, Passwort) in der `gradle.properties` konfigurieren.  
+
+- In `build.gradle` Verweise auf die `gradle.properties` anlegen
+
+Für jedes Release:
+
+- `./gradlew assembleRelease`
+]
